@@ -1,6 +1,7 @@
 # CTI_Assignment_Kiranjot_kaur
 
 Cyber Threat Intelligence Assignment Repository for Kiranjot Kaur.
+
 Task 3: - 
 
 Adversary: - A state-sponsored Russian threat actor, tracked by Microsoft as Midnight Blizzard (also referred to as APT29). (CSIAC) |
