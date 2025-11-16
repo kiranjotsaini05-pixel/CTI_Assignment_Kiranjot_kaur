@@ -4,28 +4,25 @@ Cyber Threat Intelligence Assignment Repository for Kiranjot Kaur.
 
 Task 3: - 
 
-Adversary: - A state-sponsored Russian threat actor, tracked by Microsoft as Midnight Blizzard (also referred to as APT29). (CSIAC) |
-Infrastructure: - Corporate email accounts within Microsoft’s environment and associated systems; exfiltrated communications and authentication data used to target customer systems. (CISA) |
-Capability: - Ability to exfiltrate email content, harvest authentication credentials (tokens, passwords) from compromise of Microsoft corporate accounts, then use those credentials to attempt further compromise of customer systems. (CSIAC) |
-Victim: - Microsoft itself (its corporate email system), and by extension Microsoft commercial customers (government agencies, private sector) who use Microsoft corporate email services. (CISA) |
+Diamond Model Vertex Extraction: - Activity attributed to UNC5221
+Adversary: - identified in Mandiant investigations as a frequently observed actor in the Americas and linked to exploitation of specific CVEs in late 2023 / early 2024. 
+Infrastructure: - Use of externally-hosted exploit infrastructure and temporary VPN/proxy chains to mask origin; activity observed against Internet-facing services (CVE exploitation entry points). Report notes exploitation-driven intrusions and use of proxy/C2 infrastructure patterns.
+Capability: - Exploitation of known CVEs (e.g., chain activity around CVE-2023-46805 and CVE-2024-21887 as observed in related investigations), credential harvesting and living-off-the-land persistence techniques. Tooling includes exploit frameworks and post-exploit backdoors. 
+Victim: - Targets included organizations in the Americas across sectors vulnerable to Internet-facing CVEs; M-Trends highlights financial, professional services, and high-tech among the most frequently targeted sectors.
 
+Task 5: - Threat Actor: -
+UNC5221 is a threat group that Mandiant observed many times in 2024. They usually break into systems by taking advantage of newly discovered software vulnerabilities. In several investigations, this group was seen targeting Internet-facing systems and using known CVEs to get inside a network. After gaining access, they often steal credentials and use normal system tools to hide their activity and move around without being noticed. They also use temporary cloud servers, VPNs, and proxy networks to hide where the attack is really coming from. M-Trends data shows that exploiting software weaknesses was the most common way attackers gained entry in 2024, which matches UNC5221’s behavior.
 
-Task 5: - 
-Midnight Blizzard, also known as APT29, is a Russian state-sponsored cyber threat actor known for conducting advanced espionage operations. This group was tracked by Microsoft after they successfully breached Microsoft’s internal corporate email systems. The attackers gained access by compromising authentication tokens and credentials, which allowed them to read private communications between Microsoft and its clients.
+UNC5221 has targeted many different industries, especially financial services, professional services, and technology companies. These sectors are attractive because they hold valuable data and often have systems that can be exploited.
 
-The targeted sectors include government agencies and large private companies, especially those that rely on Microsoft’s corporate email infrastructure. The initial access vector involved credential theft and abuse of trust relationships within Microsoft’s environment. Once inside, the adversary exfiltrated sensitive email content and authentication data, which they then used to attempt further compromises against downstream customer systems.
+To defend against this group, the report recommends quickly patching vulnerabilities, especially on Internet-facing systems, using strong multi-factor authentication, limiting account permissions, and improving monitoring for strange login activity or signs of exploitation. These steps make it much harder for attackers like UNC5221 to get in and stay inside a network.
 
-Using the Diamond Model of Intrusion Analysis, the adversary is Midnight Blizzard (APT29); the infrastructure includes Microsoft’s corporate email systems and authentication mechanisms; the capability involves credential harvesting, email exfiltration, and lateral movement; and the victims are Microsoft and its commercial clients across various sectors.
-
-Mitigation strategies recommended by CISA include resetting compromised credentials, analyzing exfiltrated content for risk, enforcing strong multifactor authentication (MFA), limiting privileged account access, and applying zero-trust principles. These steps help reduce the impact of the attack and prevent future exploitation.
-
-Task 6: Reflection Questions
-
+Task 6: - Reflection: -
 1. How does the Diamond Model help in understanding threat actors?
-The Diamond Model helps break down a cyberattack into four parts: who is attacking (adversary), what tools they use (infrastructure), how they attack (capability), and who they target (victim). This makes it easier to understand the attacker’s behavior and plan better defenses.
+The Diamond Model helps break down an attack into four parts: who is attacking, what tools they used, how they attacked, and who they targeted. This makes it easier to understand the full picture of the intrusion instead of looking at random details. For a group like UNC5221, the model helps connect their use of vulnerabilities (capability), the servers they used (infrastructure), and the victims they targeted. This makes it easier to see patterns and know where defenders should focus.
 
 2. What challenges did you face in identifying each vertex?
-It was sometimes hard to separate infrastructure from capability because the report described systems and actions together. Also, figuring out the full victim list beyond just “Microsoft and customers” required deeper thinking about the wider impact.
+The biggest challenge is figuring out who the attacker actually is, because reports usually don’t give a confirmed identity. Another difficulty is telling the difference between capability (tools/skills) and infrastructure (servers, domains), since attackers often reuse common tools and switch servers often. Sometimes the report gives limited details, so you have to interpret information based on context.
 
-3.How could this model support proactive defense strategies?
-By mapping out the attacker’s tools and techniques, defenders can focus on protecting the most vulnerable areas like email systems and authentication processes. Knowing the victim profile also helps organizations prepare and strengthen their defenses before an attack happens.
+3. How could this model support proactive defense strategies?
+The model helps defenders think ahead by showing how the attacker works. Once you see their tools, servers, and methods, you can watch for those signs in your own environment. This lets you detect suspicious activity earlier. For example, if you know UNC5221 uses certain vulnerabilities and proxy servers, you can patch those CVEs quickly and monitor for unusual login activity or exploit attempts. This can stop an attack before it becomes serious.
